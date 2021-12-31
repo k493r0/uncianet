@@ -1,5 +1,5 @@
 const Block = require('./block');
-const cryptoHash = require('../util/cryptoHash.js');
+const {cryptoHash} = require('../util');
 
 class Index {
     constructor() {
