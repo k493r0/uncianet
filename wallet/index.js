@@ -1,10 +1,10 @@
 const Transaction = require('./transaction');
-const {STARTING_BALANCE} = require('../config');
+const {INITIAL_BALANCE} = require('../config');
 const {ec, cryptoHash} = require('../util');
 
 class Wallet {
     constructor() {
-        this.balance = STARTING_BALANCE;
+        this.balance = INITIAL_BALANCE;
         this.keyPair = ec.genKeyPair();
         this.publicKey = this.keyPair.getPublic().encode('hex');
     }
@@ -19,6 +19,23 @@ class Wallet {
         }
 
         return new Transaction({senderWallet: this, recipient, amount});
+    }
+
+    static calculateBalance({chain,address}){
+        let outputsTotal = 0;
+
+        for(let i=1; i<chain.length; i++){
+            const block = chain[i];
+
+            for(let transaction of block.data){
+                const addressOutput = transaction.outputMap[address];
+                if(addressOutput) {
+                    outputsTotal += addressOutput;
+                }
+            }
+        }
+
+        return INITIAL_BALANCE + outputsTotal;
     }
 
 }
