@@ -12,11 +12,11 @@ class PubSub{
         this.transactionPool = transactionPool;
 
         this.publisher = redis.createClient({
-            host: '172.20.10.12',
+            host: '192.168.109.128',
             port: 6379
         });
         this.subscriber = redis.createClient({
-            host: '172.20.10.12',
+            host: '192.168.109.128',
             port: 6379
             }
         );
@@ -32,7 +32,7 @@ class PubSub{
 
         switch (channel){
             case CHANNELS.BLOCKCHAIN:
-                this.blockchain.replaceChain(parsedMessage, () =>{
+                this.blockchain.replaceChain(parsedMessage,true, () =>{
                     this.transactionPool.clearBlockchainTransactions({
                         chain: parsedMessage
                     });
