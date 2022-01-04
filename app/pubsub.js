@@ -6,17 +6,19 @@ const CHANNELS = {
     TRANSACTION:'TRANSACTION'
 }
 
+const redisHost = '192.168.109.128';
+
 class PubSub{
     constructor({blockchain, transactionPool}) {
         this.blockchain = blockchain;
         this.transactionPool = transactionPool;
 
         this.publisher = redis.createClient({
-            host: '192.168.109.128',
+            host: redisHost,
             port: 6379
         });
         this.subscriber = redis.createClient({
-            host: '192.168.109.128',
+            host: redisHost,
             port: 6379
             }
         );
