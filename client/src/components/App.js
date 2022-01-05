@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Blocks from './Blocks';
+import {Link} from 'react-router-dom';
 
 class App extends Component{
     state = {walletInfo: {}};
@@ -20,10 +20,12 @@ class App extends Component{
             <div>
                 <h1>UnciaBit | Blockchain Simulation |</h1>
             </div>
+            <br/>
+                <div><Link to='/blocks'>Blocks</Link></div>
+            <br/>
+
                 <div>Address: {address} </div>
                 <div>Balance: {balance} </div>
-                <br/>
-                <Blocks />
             </div>
         );
     }
