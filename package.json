@@ -37,6 +37,7 @@
     "parcel-bundler": "^1.12.5",
     "path": "^0.12.7",
     "react": "^17.0.2",
+    "react-bootstrap": "^2.1.0",
     "react-dom": "^17.0.2",
     "redis": "2.8.0",
     "request": "^2.88.2",
