@@ -22,10 +22,12 @@ class App extends Component{
             </div>
             <br/>
                 <div><Link to='/blocks'>Blocks</Link></div>
-            <br/>
-
-                <div>Address: {address} </div>
-                <div>Balance: {balance} </div>
+                <div><Link to='/create-transaction'>Make Transaction</Link></div>
+                <br/>
+                <div className='WalletInfo'>
+                    <div>Address: {address} </div>
+                    <div>Balance: {balance} </div>
+                </div>
             </div>
         );
     }
