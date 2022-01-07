@@ -4,6 +4,7 @@ import {Router, Switch, Route} from "react-router-dom";
 import history from './history';
 import App from "./components/App";
 import CreateTransaction from "./components/CreateTransaction";
+import TransactionPool from "./components/TransactionPool";
 import Blocks from "./components/Blocks";
 import * as ReactDOM from "react-dom";
 // import './index.css';
@@ -14,6 +15,7 @@ render(
             <Route exact path="/" component={App}/>
             <Route path='/blocks' component={Blocks}/>
             <Route path={'/create-transaction'} component={CreateTransaction} />
+            <Route path={'/transaction-pool'} component={TransactionPool} />
         </Switch>
     </Router>,
     document.getElementById("root"));
